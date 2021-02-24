@@ -17,8 +17,8 @@ public class Book {
 
     @ManyToOne
     @JoinColumn
-//    @JsonIgnoreProperties("booksWritten")
-    @JsonBackReference
+    @JsonIgnoreProperties("booksWritten")
+//    @JsonBackReference
     private Author author;
 
     @Enumerated(EnumType.STRING)

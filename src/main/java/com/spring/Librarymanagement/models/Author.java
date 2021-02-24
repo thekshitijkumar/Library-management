@@ -13,8 +13,8 @@ public class Author {
     private int id;
 
     @OneToMany(mappedBy = "author",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-    @JsonManagedReference
-//    @JsonIgnoreProperties("author")
+//    @JsonManagedReference
+    @JsonIgnoreProperties("author")
     private List<Book> booksWritten;
 
     private String name;
