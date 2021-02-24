@@ -1,5 +1,8 @@
 package com.spring.Librarymanagement.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -10,6 +13,8 @@ public class Author {
     private int id;
 
     @OneToMany(mappedBy = "author",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @JsonManagedReference
+//    @JsonIgnoreProperties("author")
     private List<Book> booksWritten;
 
     private String name;
