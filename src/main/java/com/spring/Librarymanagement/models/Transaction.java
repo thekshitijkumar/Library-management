@@ -1,5 +1,6 @@
 package com.spring.Librarymanagement.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
@@ -23,10 +24,12 @@ public class Transaction {
 
     @ManyToOne
     @JoinColumn
+    @JsonIgnoreProperties("transaction")
     private Book book;
 
     @ManyToOne
     @JoinColumn
+    @JsonIgnoreProperties("transactions")
     private Card card;
 
     private int fineAmount;

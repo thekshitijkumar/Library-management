@@ -1,6 +1,7 @@
 package com.spring.Librarymanagement.models;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -28,6 +29,7 @@ public class Student {
 
     @OneToOne
     @JoinColumn//adding column named cardId by default it is primary key of this table
+    @JsonIgnoreProperties("student")
     private Card card;
 
     public int getId() {

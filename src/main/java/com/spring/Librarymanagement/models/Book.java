@@ -26,12 +26,14 @@ public class Book {
 
     @ManyToOne
     @JoinColumn
+    @JsonIgnoreProperties("books")
     private Card card;
 
     @Column(columnDefinition = "TINYINT(1)")
     private Boolean available;
 
     @OneToMany(mappedBy = "book",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @JsonIgnoreProperties("book")
     private List<Transaction> transaction;
     public Book() {
         this.available=true;
@@ -90,6 +92,14 @@ public class Book {
 
     public void setAvailable(Boolean available) {
         this.available = available;
+    }
+
+    public List<Transaction> getTransaction() {
+        return transaction;
+    }
+
+    public void setTransaction(List<Transaction> transaction) {
+        this.transaction = transaction;
     }
 
     @Override

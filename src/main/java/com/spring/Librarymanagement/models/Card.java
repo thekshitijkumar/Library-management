@@ -1,6 +1,9 @@
 package com.spring.Librarymanagement.models;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIgnoreType;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -21,15 +24,18 @@ public class Card {
     private Date updatedOn;
 
     @OneToOne(mappedBy = "card",cascade = CascadeType.ALL,fetch = FetchType.LAZY)//card table is parent table
+    @JsonIgnoreProperties("card")
     private Student student;
 
     @Enumerated(EnumType.STRING)
     private CardStatus cardStatus;
 
     @OneToMany(mappedBy = "card",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @JsonIgnoreProperties("card")
     private List<Book> books;
 
     @OneToMany(mappedBy = "card",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @JsonIgnoreProperties("card")
     private List<Transaction> transactions;
     public int getId() {
         return id;
