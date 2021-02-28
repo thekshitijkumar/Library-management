@@ -36,6 +36,9 @@ public class LibraryManagementApplication implements CommandLineRunner {
 //		Book book=new Book("Physics",author, Genre.PHYSICS,true);
 //		authorRepository.save(author);	//first need to save author details then only book can be saved
 //		bookRepository.save(book);
+//		System.out.println(bookRepository.findByName("Physics"));
+
+		System.out.println(authorRepository.findByName("Tim"));
 
 
 
