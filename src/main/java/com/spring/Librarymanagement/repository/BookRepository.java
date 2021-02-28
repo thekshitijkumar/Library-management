@@ -28,4 +28,6 @@ public interface BookRepository extends JpaRepository<Book,Integer> {
     @Modifying
     @Query("update Book b set b.card=:#{#book.card} , b.available=:#{#book.available} where b.id=:#{#book.id}")
     void updateBook(Book book);
+
+
 }
