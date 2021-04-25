@@ -18,4 +18,5 @@ public interface StudentRepository extends JpaRepository<Student,Integer> {
             "where s.id = :#{#std.id}")
     public void updateStudentDetails(Student std);
 
+   public Student findByEmailId(String emailId);
 }

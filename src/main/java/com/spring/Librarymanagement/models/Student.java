@@ -2,6 +2,7 @@ package com.spring.Librarymanagement.models;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.ToString;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -9,6 +10,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
+@ToString
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -11,17 +11,18 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/book")
 public class BookController {
 
     @Autowired
     BookService bookService;
-    @PostMapping("/addBook")
+    @PostMapping("/")
     public ResponseEntity addBook(@RequestBody Book book)
     {
         bookService.addBook(book);
         return new ResponseEntity<>("Book is added successfully", HttpStatus.CREATED);
     }
-    @GetMapping("/getBooks")
+    @GetMapping("/")
     public ResponseEntity  getBooks(@RequestParam(required = false) String author_name,
                                 @RequestParam(required = false) String genre,
                                 @RequestParam(required = false,defaultValue = "true") Boolean availability)

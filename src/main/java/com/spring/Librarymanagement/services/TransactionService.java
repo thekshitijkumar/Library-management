@@ -106,4 +106,8 @@ public class TransactionService {
 
         return tr.getTransactionId();
     }
+
+    public List<Transaction> getTransactionsForCard(int cardId) {
+        return transactionRepository.getTransactionsForCard(cardId);
+    }
 }
