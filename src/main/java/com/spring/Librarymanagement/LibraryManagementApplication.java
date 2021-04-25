@@ -47,7 +47,7 @@ public class LibraryManagementApplication implements CommandLineRunner {
 //				.authority(AuthorityConstants.STUDENT_AUTHORITY)
 //				.build();
 //
-//		userRepository.saveAll(Arrays.asList(user1,user2));
+//		userRepository.saveAll(Arrays.asList(user1));
 //		Student student=new Student(24,"ABC","India","abc@gmail.com");
 //		Card card=new Card();
 //		student.setCard(card);

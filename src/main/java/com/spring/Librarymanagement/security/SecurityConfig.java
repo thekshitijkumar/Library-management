@@ -1,5 +1,6 @@
 package com.spring.Librarymanagement.security;
 
+import com.spring.Librarymanagement.repository.AuthorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -31,9 +32,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 httpBasic().and()
                 .csrf().disable()
                 .authorizeRequests()
+                .antMatchers(HttpMethod.PUT,"/student/update_password/**").hasAuthority(AuthorityConstants.STUDENT_AUTHORITY)
                 .antMatchers(HttpMethod.PUT,"/student/**").hasAnyAuthority(AuthorityConstants.ADMIN_AUTHORITY,AuthorityConstants.STUDENT_AUTHORITY)
                 .antMatchers(HttpMethod.GET,"/student/all/**").hasAuthority(AuthorityConstants.ADMIN_AUTHORITY)
-                .antMatchers(HttpMethod.GET,"/student/**").hasAnyAuthority(AuthorityConstants.ADMIN_AUTHORITY,AuthorityConstants.STUDENT_AUTHORITY)
+                .antMatchers(HttpMethod.GET,"/student/studentById/**").hasAuthority(AuthorityConstants.ADMIN_AUTHORITY)
+                .antMatchers(HttpMethod.GET,"/student/**").hasAnyAuthority(AuthorityConstants.STUDENT_AUTHORITY)
                 .antMatchers("/student/**").hasAuthority(AuthorityConstants.ADMIN_AUTHORITY)
                 .antMatchers(HttpMethod.GET,"/book/**").hasAnyAuthority(AuthorityConstants.ADMIN_AUTHORITY,AuthorityConstants.STUDENT_AUTHORITY)
                 .antMatchers("/book/**").hasAuthority(AuthorityConstants.ADMIN_AUTHORITY)

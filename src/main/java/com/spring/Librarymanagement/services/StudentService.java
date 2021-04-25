@@ -35,7 +35,11 @@ public class StudentService {
         logger.info("student with id {} is deleted",id);
     }
 
-    public Student findStudentById(int studentId) {
-        return studentRepository.findById(studentId).get();
+    public Student getDetails(String emailId) {
+        return studentRepository.findByEmailId(emailId);
+    }
+
+    public Student getDetailsById(int id) {
+        return studentRepository.findById(id).get();
     }
 }
