@@ -8,23 +8,24 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/author")
 public class AuthorController {
 
     @Autowired
     AuthorService authorService;
-    @PostMapping("/createAuthor")
+    @PostMapping("/")
     public ResponseEntity createAuthor(@RequestBody Author author)
     {
         authorService.createAuthor(author);
         return new ResponseEntity("Author is created successfully", HttpStatus.CREATED);
     }
-    @GetMapping("/getAuthor")
+    @GetMapping("/")
     public ResponseEntity getAuthor(@RequestParam int id)
     {
         Author author=authorService.getAuthor(id);
         return new ResponseEntity(author,HttpStatus.OK);
     }
-    @PutMapping("/modifyAuthor")
+    @PutMapping("/")
     public ResponseEntity modifyAuthor(@RequestBody Author author)
     {
         authorService.modifyAuthor(author);

@@ -35,4 +35,7 @@ public class StudentService {
         logger.info("student with id {} is deleted",id);
     }
 
+    public Student findStudentById(int studentId) {
+        return studentRepository.findById(studentId).get();
+    }
 }
